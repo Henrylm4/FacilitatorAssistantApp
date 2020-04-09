@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FacillitatorAssistantApp.Páginas.RegisterPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Grid.Row="0" Margin="30,0,0,0">
+                    <Label Text="Register Now" FontSize="18" TextColor="Green"></Label>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="1" Spacing="10" HorizontalOptions="Center" Margin="0,20,0,20">
+                    <Entry x:Name="Username" Placeholder="Username" FontSize="14" BackgroundColor="White" WidthRequest="250" Keyboard="Text" Text="{Binding UsernameTxt, Mode=TwoWay}"></Entry>
+                    <Entry x:Name="Email" Placeholder="Email" FontSize="14" BackgroundColor="White" WidthRequest="250" Keyboard="Email" Text="{Binding EmailTxt, Mode=TwoWay}"></Entry>
+                    <Entry x:Name="Password" IsPassword="True" Placeholder="Password" FontSize="14" BackgroundColor="White" WidthRequest="250" Keyboard="Text" Text="{Binding PasswordTxt, Mode=TwoWay}" ></Entry>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="FName" Placeholder="First Name" FontSize="14" BackgroundColor="White" WidthRequest="125" Keyboard="Text" Text="{Binding FnameTxt, Mode=TwoWay}"></Entry>
+                        <Entry x:Name="LName" Placeholder="Last Name" FontSize="14" BackgroundColor="White" WidthRequest="125" Keyboard="Text" Text="{Binding LnameTxt, Mode=TwoWay}"></Entry>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" >
+                        <Entry x:Name="Age" Placeholder="Age" FontSize="14"  BackgroundColor="White" WidthRequest="125" Keyboard="Numeric" Text="{Binding AgeTxt, Mode=TwoWay}"></Entry>
+                        <Picker Title="Country" FontSize="14" WidthRequest="125" >
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}" >
+                                    <x:String>Ecuador</x:String>
+                                    <x:String>Colombia</x:String>
+                                    <x:String>Peru</x:String>
+
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Center">
+                    <Frame Padding="0,4,0,4" HasShadow="True">
+                        <Button Text="Accept" HeightRequest="35" WidthRequest="250" TextColor="#333333" BackgroundColor="White" FontSize="10" Command="{Binding RegisterCommand}" IsEnabled="{Binding IsEnabled}"></Button>
+                    </Frame>
+                    <Frame Padding="0,4,0,4" HasShadow="True">
+                        <Button Text="Return" HeightRequest="35" WidthRequest="250" TextColor="#333333" BackgroundColor="White" FontSize="10" Clicked="Regresar"></Button>
+                    </Frame>
+                </StackLayout>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
